@@ -29,15 +29,21 @@ def main(X_train, y_train, X_test, y_test):
 
 # Allow running directly
 if __name__ == "__main__":
-    # Example: load your data here
-    # Replace with your actual train/test split
     from sklearn.model_selection import train_test_split
-    from sklearn.datasets import load_iris
 
-    # Demo dataset (replace with your own)
-    data = load_iris()
+    # Load your wine dataset
+    data = pd.read_csv("winequality-red.csv")
+
+    # Normalize column names to avoid KeyError
+    data.columns = data.columns.str.strip().str.lower()
+
+    # Separate features and target
+    X = data.drop("quality", axis=1)
+    y = data["quality"]
+
+    # Train/test split
     X_train, X_test, y_train, y_test = train_test_split(
-        data.data, data.target, test_size=0.3, random_state=42, stratify=data.target
+        X, y, test_size=0.2, random_state=42, stratify=y
     )
 
     # Run all models
