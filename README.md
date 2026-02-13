@@ -51,6 +51,8 @@ The dataset contains physicochemical properties of red wine samples and their qu
 | XGBoost             | Highest AUC (0.8374) and strong overall performance. Slightly lower accuracy than Random Forest but excellent discrimination ability. |
 
 ## Project Structure
+
+```
 ML-2/
 ├── app.py                  # Streamlit application
 ├── requirements.txt        # Python dependencies
@@ -67,7 +69,7 @@ ML-2/
 │   ├── random_forest.py
 │   └── xgboost.py
 └── .gitignore
-
+```
 
 ## Installation and Setup
 Prerequisites: Python 3.8+ and pip  
