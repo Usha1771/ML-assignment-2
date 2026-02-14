@@ -154,7 +154,7 @@ ML-2/
 4. **Wait for Deployment**
    - Deployment takes 2-5 minutes
    - Monitor the deployment logs
-   - Your app will be live at: `https://ML-assignment-2.streamlit.app`
+   - Your app will be live at: `https://ml-assignment-2-p76petyy6p94fvkbjyvwqt.streamlit.app`
 
 **📖 Detailed Guide:** See [STREAMLIT_DEPLOYMENT.md](STREAMLIT_DEPLOYMENT.md) for complete step-by-step instructions and troubleshooting.
 
