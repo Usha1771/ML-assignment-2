@@ -72,11 +72,132 @@ ML-2/
 ```
 
 ## Installation and Setup
-Prerequisites: Python 3.8+ and pip  
 
-```bash
-git clone <repository-url>
-cd ML-2
-pip install -r requirements.txt
-python models/main.py
-streamlit run app.py
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
+
+### Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd ML-assignment-2
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Download the dataset**
+   ```bash
+   python download_dataset.py
+   ```
+   Alternatively, download manually from [UCI ML Repository](https://archive.ics.uci.edu/ml/datasets/wine+quality) and save as `winequality-red.csv` in the project root.
+
+4. **Train the models**
+   ```bash
+   python train_models.py
+   ```
+   This will:
+   - Load and preprocess the dataset
+   - Train all 6 models
+   - Calculate evaluation metrics
+   - Save models and metrics to the `model/` directory
+
+5. **Run the Streamlit app locally**
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+
+## Usage
+
+### Streamlit Application Features
+
+1. **Model Comparison Page**
+   - View comparison table of all models
+   - Select a model to see detailed metrics
+   - View confusion matrix and classification report
+
+2. **Predict on New Data Page**
+   - Upload CSV file with test data
+   - Select a model for prediction
+   - View predictions and download results
+
+3. **Dataset Info Page**
+   - Learn about the dataset
+   - View feature statistics
+
+## Deployment
+
+### Streamlit Community Cloud
+
+**Quick Deployment Steps:**
+
+1. **Push your code to GitHub** (already done ✅)
+   ```bash
+   git push origin main
+   ```
+
+2. **Go to Streamlit Cloud**
+   - Visit: https://streamlit.io/cloud
+   - Sign in with your GitHub account
+
+3. **Create New App**
+   - Click "New App" button
+   - Select repository: `Usha1771/ML-assignment-2`
+   - Choose branch: `main`
+   - Main file path: `app.py`
+   - Click "Deploy"
+
+4. **Wait for Deployment**
+   - Deployment takes 2-5 minutes
+   - Monitor the deployment logs
+   - Your app will be live at: `https://ML-assignment-2.streamlit.app`
+
+**📖 Detailed Guide:** See [STREAMLIT_DEPLOYMENT.md](STREAMLIT_DEPLOYMENT.md) for complete step-by-step instructions and troubleshooting.
+
+**✅ Deployment Checklist:** See [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) to ensure everything is ready.
+
+### Automatic Updates
+
+- Streamlit Cloud automatically redeploys when you push to the `main` branch
+- Just push your changes: `git push origin main`
+- Wait 2-5 minutes for automatic redeployment
+
+## Evaluation Metrics
+
+All models are evaluated using the following metrics:
+
+- **Accuracy**: Overall correctness of predictions
+- **AUC Score**: Area Under the ROC Curve (one-vs-rest for multi-class)
+- **Precision**: Ratio of true positives to all predicted positives
+- **Recall**: Ratio of true positives to all actual positives
+- **F1 Score**: Harmonic mean of precision and recall
+- **MCC Score**: Matthews Correlation Coefficient, a balanced measure for multi-class classification
+
+## Technologies Used
+
+- **Python 3.8+**
+- **Streamlit** - Web application framework
+- **Scikit-learn** - Machine learning library
+- **XGBoost** - Gradient boosting framework
+- **Pandas** - Data manipulation
+- **NumPy** - Numerical computing
+- **Matplotlib & Seaborn** - Data visualization
+- **Joblib** - Model serialization
+
+## Author
+
+Usha Kiran
+
+
+## License
+
+This project is for educational purposes as part of BITS Pilani ML Assignment 2.
+
+## Acknowledgments
+
+- UCI Machine Learning Repository for the Wine Quality dataset
+- BITS Pilani for the assignment framework
