@@ -11,11 +11,22 @@ The assignment requires:
 
 ## Dataset Description
 **Dataset:** Wine Quality (Red Wine) — UCI Machine Learning Repository  
-**Source:** UCI ML Repository - Wine Quality  
+**Source:** [UCI ML Repository - Wine Quality](https://archive.ics.uci.edu/ml/datasets/wine+quality)
 
 The dataset contains physicochemical properties of red wine samples and their quality ratings. Quality is scored on a scale from 3 to 8, making this a multi-class classification problem.
 
-**Features (11):** Fixed Acidity, Volatile Acidity, Citric Acid, Residual Sugar, Chlorides, Free Sulfur Dioxide, Total Sulfur Dioxide, Density, pH, Sulphates, Alcohol  
+**Features (11 input features):**
+1. **Fixed Acidity** - Most acids involved with wine or fixed or nonvolatile
+2. **Volatile Acidity** - The amount of acetic acid in wine
+3. **Citric Acid** - Found in small quantities, adds freshness and flavor
+4. **Residual Sugar** - The amount of sugar remaining after fermentation stops
+5. **Chlorides** - The amount of salt in the wine
+6. **Free Sulfur Dioxide** - The free form of SO2 exists in equilibrium between molecular SO2 and bisulfite ion
+7. **Total Sulfur Dioxide** - Amount of free and bound forms of S02
+8. **Density** - The density of water is close to that of water depending on the percent alcohol and sugar content
+9. **pH** - Describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic)
+10. **Sulphates** - A wine additive which can contribute to sulfur dioxide gas (S02) levels
+11. **Alcohol** - The percent alcohol content of the wine 
 
 **Target Variable:** Quality (score between 3 and 8 → six classes)  
 **Dataset Statistics:** 1,599 instances, 11 features, 6 classes, no missing values  
@@ -43,12 +54,12 @@ The dataset contains physicochemical properties of red wine samples and their qu
 
 | ML Model Name       | Observation |
 |---------------------|-------------|
-| Logistic Regression | Fast to train but limited by non-linear relationships. Struggles with minority classes. |
-| Decision Tree       | Captures non-linear patterns but prone to overfitting. Better than Logistic Regression but affected by class imbalance. |
-| kNN                 | Slightly better than Decision Tree. Effective at capturing local patterns but computationally expensive and sensitive to k. |
-| Naive Bayes         | Lowest accuracy but reasonable AUC. Assumption of independence doesn’t hold well here. Provides a quick baseline. |
-| Random Forest       | Best accuracy (67.5%) and strong MCC. Ensemble reduces overfitting and generalizes well. Robust predictions compared to single models. |
-| XGBoost             | Highest AUC (0.8374) and strong overall performance. Slightly lower accuracy than Random Forest but excellent discrimination ability. |
+| Logistic Regression | Logistic Regression achieved 58.20% accuracy with 80.12% AUC. While it provides a linear decision boundary and is fast to train, its performance is limited by the non-linear relationships in the wine quality data. The model struggles with the multi-class classification task, particularly for minority classes (quality 3, 4, 8).  |
+| Decision Tree       | Decision Tree achieved 60.94% accuracy with 65.84% AUC. The model can capture non-linear relationships but shows signs of overfitting. It performs better than Logistic Regression but still struggles with class imbalance, especially for rare quality levels.|
+| kNN                 | K-Nearest Neighbors achieved 60.94% accuracy with 69.83% AUC, performing slightly better than Decision Tree. The model benefits from feature scaling and captures local patterns effectively. However, it's computationally expensive and sensitive to the choice of k parameter. |
+| Naive Bayes         | Naive Bayes achieved the lowest accuracy (56.25%) but a reasonable AUC (68.38%). The model's assumption of feature independence doesn't hold well for wine quality data, where chemical properties are correlated. Despite this, it provides a fast baseline model. |
+| Random Forest       | Random Forest achieved the best performance (67.50% accuracy, 79.07% AUC). By combining multiple decision trees, it effectively reduces overfitting and handles non-linear relationships. The ensemble approach provides robust predictions and better generalization compared to individual models. |
+| XGBoost             | XGBoost achieved the second-best performance (65.94% accuracy, 83.74% AUC). It effectively captures complex patterns and feature interactions. While slightly lower than Random Forest in this case, it shows strong performance with good generalization. The model benefits from gradient boosting's ability to correct errors iteratively. |
 
 ## Project Structure
 
@@ -57,6 +68,7 @@ ML-2/
 ├── app.py                  # Streamlit application
 ├── requirements.txt        # Python dependencies
 ├── README.md               # Documentation
+
 ├── results_summary.csv     # Evaluation metrics table
 ├── 2025aa05614_ml_assignment.ipynb  # Jupyter notebook
 ├── models/                 # Classifier implementations
